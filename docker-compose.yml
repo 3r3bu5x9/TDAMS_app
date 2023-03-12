@@ -1,0 +1,30 @@
+services:
+  back-end:
+    build:
+      context: TDAMS_backend
+      dockerfile: Dockerfile
+    ports:
+      - 8080:8080
+    environment:
+      DB_URL: jdbc:mysql://mysql-container/TDAMS
+      DB_USERNAME: root
+      DB_PASSWORD: manager
+    depends_on:
+      - mysql-container
+  front-end:
+    build:
+      context: TDAMS_frontend
+      dockerfile: Dockerfile
+    ports:
+      - 3000:3000
+    depends_on:
+      - back-end
+  mysql-container:
+    image: mysql:8.0.32
+    volumes:
+      - db-data:/var/lib/mysql
+    environment:
+      MYSQL_DATABASE: TDAMS
+      MYSQL_ROOT_PASSWORD: manager
+volumes:
+  db-data:
