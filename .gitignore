@@ -35,14 +35,7 @@ build/
 
 ### VS Code ###
 .vscode/
-mvnw.cmd
-mvnw
 front-end/Dockerfile.old
-back-end/src/main/resources/application.properties
 _docker-compose.yml
-docker-compose-local.yml
 back-end/logs/spring-boot-logger.log
-docker-compose.yml
-docker-compose.yml
-*.log
 ecs-push-assignment-app.sh
